@@ -2,33 +2,32 @@
 
 void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr(int nb)
 {
-	if(nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if(nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-		
-	}
-	if(nb > 9)
-	{
-		ft_putnbr(nb/10);
-	}
-		ft_putchar(nb % 10 + '0');
-}
+	long	n;
 
-int main()
+	n = nb;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+	}
+	ft_putchar(n % 10 + '0');
+}
+/*
+int	main(void)
 {
-	int a = 42;
+	int	a;
+
+	a = -2147483648;
 	ft_putnbr(a);
 	return (0);
 }
+*/
